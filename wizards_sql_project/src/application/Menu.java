@@ -56,7 +56,7 @@ public class Menu {
 	}
 	// 1. display houses
 	private void displayHouses() throws SQLException {
-		List<House> houses = HouseDao.getHouses();
+		List<House> houses = HouseDao.getHouses(); //ERROR:wants to make getHouses() static in HouseDao
 		for(House house : houses) {
 			System.out.println(house.getHouseId() + " : " + house.getName());
 		}
@@ -66,10 +66,13 @@ public class Menu {
 	private void displayHouse() throws SQLException {
 		System.out.print("Enter house id: ");
 		int id = Integer.parseInt(scanner.nextLine());
-		House house = HouseDao.getHouseById(id);
+		House house = HouseDao.getHouseById(id);  //ERROR:wants to make getHouses() static in HouseDao
 		System.out.println(house.getHouseId() + " : " + house.getName());
 		for (Character character : house.getCharacters()) {
-			System.out.println("\tCharacterId: " + character.getCharacterId() + " - Name: " + character.getFirstName() + " " + character.getLastName() );
+			System.out.println("\tCharacterId: " + character.getCharacterId() //ERROR:method getCharacterId() is undefined for the type Character
+		+ " - Name: "
+		+ character.getFirstName() + " " //ERROR:method getFirstName() is undefined for the type Character
+		+ character.getLastName()); //ERROR:method getFirstName() getLastName() is undefined for the type Character
 		}
 	}
 	

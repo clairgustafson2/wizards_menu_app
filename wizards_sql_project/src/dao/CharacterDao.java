@@ -48,7 +48,7 @@ public class CharacterDao {
 		
 		while (fs.next()) {
 			characters.add(new Character(fs.getInt(1), fs.getString(2), fs.getString(3)));
-		}
+		}	//LINE 50 ERROR: The constructor Character(int, String, String) is undefined
 		return characters;
 	}
 	

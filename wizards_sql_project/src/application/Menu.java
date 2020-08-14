@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import entity.House;
-import entity.Characters;
+import entity.Character;
 import dao.CharacterDao;
 import dao.HouseDao;
 
@@ -28,9 +28,9 @@ public class Menu {
 			
 		try {
 			if (selection.equals("1")) {
-				//displayHouses();
+				displayHouses();
 			} else if (selection.equals("2")) {
-				//displayHouse();
+				displayHouse();
 			} else if (selection.equals("3")) {
 				createHouse();
 			} else if (selection.equals("4")) {
@@ -56,9 +56,9 @@ public class Menu {
 	}
 	// 1. display houses
 	private void displayHouses() throws SQLException {
-		List<House> houses = HouseDao.getHouses(); //ERROR:wants to make getHouses() static in HouseDao
+		List<House> houses = houseDao.getHouses(); 
 		for(House house : houses) {
-			System.out.println(house.getHouseId() + " : " + house.getName());
+			System.out.println(house.getHouseId() + " : " + house.getHouseName());
 		}
 	}
 
@@ -66,20 +66,20 @@ public class Menu {
 	private void displayHouse() throws SQLException {
 		System.out.print("Enter house id: ");
 		int id = Integer.parseInt(scanner.nextLine());
-		House house = HouseDao.getHouseById(id);  //ERROR:wants to make getHouses() static in HouseDao
-		System.out.println(house.getHouseId() + " : " + house.getName());
+		House house = houseDao.getHouseById(id); 
+		System.out.println(house.getHouseId() + " : " + house.getHouseName());
 		for (Character character : house.getCharacters()) {
-			System.out.println("\tCharacterId: " + character.getCharacterId() //ERROR:method getCharacterId() is undefined for the type Character
+			System.out.println("\tCharacterId: " + character.getCharactertId() 
 		+ " - Name: "
-		+ character.getFirstName() + " " //ERROR:method getFirstName() is undefined for the type Character
-		+ character.getLastName()); //ERROR:method getFirstName() getLastName() is undefined for the type Character
+		+ character.getFirstName() + " "
+		+ character.getLastName()); 
 		}
 	}
 	
 	// 3. creates a house
 	private void createHouse() throws SQLException {
 		System.out.print("Enter new house name: ");
-		String houseName = scanner.nextLine();
+		String houseName = scanner.nextLine();                                                             
 		houseDao.createNewHouse(houseName);
 	}
 	

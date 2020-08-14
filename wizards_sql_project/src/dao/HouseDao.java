@@ -15,7 +15,7 @@ public class HouseDao {
 	private CharacterDao characterDao = new CharacterDao();
 	private final String GET_HOUSE_QUERY = "SELECT * FROM house";
 	private final String GET_HOUSE_BY_ID_QUERY = "SELECT * FROM house WHERE id = ?";
-	private final String CREATE_NEW_HOUSE_QUERY = "INSERT INTO house(name) VALUES(?)";
+	private final String CREATE_NEW_HOUSE_QUERY = "INSERT INTO house(house_name) VALUES(?)";
 	
 	public HouseDao() {
 		connection = DBConnection.getConnection();	
@@ -49,7 +49,7 @@ public class HouseDao {
 	}
 	
 	// 2.a populates houses with characters
-	private House populateHouse(int id, String name) throws SQLException {
-		return new House(id, name, characterDao.getCharactersByHouseId(id)); 	
+	private House populateHouse(int id, String houseName) throws SQLException {
+		return new House(id, houseName, characterDao.getCharactersByHouseId(id)); 	
 	}
 }

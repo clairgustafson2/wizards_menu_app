@@ -1,12 +1,12 @@
 package entity;
 
-public class Characters {
+public class Character {
 
 	private int charactertId;
 	private String firstName;
 	private String lastName;
 	
-	public Characters(int characterId, String firstName, String lastName) {
+	public Character(int characterId, String firstName, String lastName) {
 		this.setCharactertId(characterId);
 		this.setFirstName(firstName);
 		this.setLastName(lastName);

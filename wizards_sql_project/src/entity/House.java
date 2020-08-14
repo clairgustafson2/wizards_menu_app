@@ -5,12 +5,12 @@ import java.util.List;
 public class House {
 	
 	private int houseId;
-	private String name;
+	private String houseName;
 	private List<Character> characters;
 	
-	public House (int houseId, String name, List<Character> characters) {
+	public House (int houseId, String houseName, List<Character> characters) {
 		this.setHouseId(houseId);
-		this.setName(name);
+		this.setHouseName(houseName);
 		this.setCharacters(characters);
 		
 	}
@@ -23,12 +23,12 @@ public class House {
 		this.houseId = houseId;
 	}
 
-	public String getName() {
-		return name;
+	public String getHouseName() {
+		return houseName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setHouseName(String houseName) {
+		this.houseName = houseName;
 	}
 
 	public List<Character> getCharacters() {

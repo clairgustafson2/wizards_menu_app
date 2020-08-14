@@ -37,7 +37,5 @@ public class House {
 
 	public void setCharacters(List<Character> characters) {
 		this.characters = characters;
-	}
-
-	
+	}	
 }

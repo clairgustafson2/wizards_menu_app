@@ -31,11 +31,11 @@ public class CharacterDao {
 	}
 	
 	// 2. update a character
-	public void updateCharacterById (int id, String firstName, String lastName) throws SQLException {
+	public void updateCharacterById (String firstName, String lastName, int id) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement(UPDATE_CHARACTER_BY_ID_QUERY);
-		ps.setInt(1, id);
-		ps.setString(2, firstName);
-		ps.setString(3, lastName);
+		ps.setString(1, firstName);
+		ps.setString(2,lastName );
+		ps.setInt(3, id );
 		ps.executeUpdate();
 	}
 	

@@ -95,12 +95,13 @@ public class Menu {
 	}
 	// 5. update character first name or last name by character id
 	private void updateCharacter() throws SQLException {
-		System.out.print("Enter first name of new character: ");
-		String firstName = scanner.nextLine();
-		System.out.print("Enter last name of new character: ");
-		String lastName = scanner.nextLine();
+		System.out.print("Enter id to update character: ");
 		int id = Integer.parseInt(scanner.nextLine());
-		characterDao.updateCharacterById(id, firstName, lastName);
+		System.out.print("Enter first name to update character: ");
+		String firstName = scanner.nextLine();
+		System.out.print("Enter last name to update character: ");
+		String lastName = scanner.nextLine();
+		characterDao.updateCharacterById(firstName, lastName, id);
 	}
 	
 	// 6. deletes a character by id
